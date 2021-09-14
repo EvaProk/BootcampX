@@ -33,6 +33,14 @@ FROM students
 WHERE  Github IS NULL
 AND end_date IS NOT NULL;
 
+-- Get the student's name, student's start_date, cohort's name, and cohort's start_date.
+-- Alias the column names to be more descriptive.
+-- Order by the start date of the cohort.
+SELECT students.name, cohorts.name   students.start_date as student_start_date, cohorts.start_date as cohorts_start_date
+FROM students 
+JOIN cohorts ON cohorts.id = cohort_name
+WHERE cohorts.start_date != students.start_date
+ORDER BY cohort_start_date;
 
 
 
